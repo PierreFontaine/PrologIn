@@ -29,7 +29,9 @@ int nbreOcc(string chaine){
 		if (a){
 			compt1 +=1;
 			while((chaine[i] == chaine[i-1])&&(i <= chaine.size())){
-				compt1 += 1;
+				if (int(chaine[i]) != 32 ){
+					compt1 += 1;
+				}
 				i += 1;
 			}
 			a = false;
@@ -37,7 +39,9 @@ int nbreOcc(string chaine){
 		} else {
 			compt2 += 1;
 			while((chaine[i] == chaine[i-1]) && (i <= chaine.size())){
-				compt2 += 1;
+				if (int(chaine[i]) != 32 ){
+					compt2 += 1;
+				}
 				i += 1;
 			}
 			a = true;
@@ -55,6 +59,9 @@ int nbreOcc(string chaine){
 		res = compt1;
 	}else{
 		res = compt2;
+	}
+	if (res == 0){
+		res = 1;
 	}
 	return res;
 }
@@ -99,10 +106,9 @@ void minuscule(string &chaine){
 int main(int argc, char const *argv[]){
 	string chaine;
 	int len,res;
-
+	cin >> len;
 	cin >> chaine;
 	minuscule(chaine);
 	chaine = tri(chaine);
 	cout << nbreOcc(chaine) << endl;
-	return 0;
 }	
