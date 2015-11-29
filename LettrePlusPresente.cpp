@@ -6,7 +6,7 @@ using namespace std;
 /*
 	auteur   : pierre fontaine
 	email    : pierre.ftn64@gmail.com
-	but      :
+	but      : 
 	date     :
 	version  : 
 	remarque :
@@ -21,19 +21,34 @@ int nbreOcc(string chaine){
 
 	i = 1;
 	a = true;
-	compt1 = 1;
-	if (a){
-		while(chaine[i] == chaine[i-1]){
-			compt1 += 1;
+	compt1 = 0;
+	compt2 = 0;
+	
+
+	while(i < chaine.size()){
+		if (a){
+			compt1 +=1;
+			while((chaine[i] == chaine[i-1])&&(i <= chaine.size())){
+				compt1 += 1;
+				i += 1;
+			}
+			a = false;
 			i += 1;
-		}
-		a = false;
-	} else {
-		while(chaine[i] == chaine[i-1]){
+		} else {
 			compt2 += 1;
+			while((chaine[i] == chaine[i-1]) && (i <= chaine.size())){
+				compt2 += 1;
+				i += 1;
+			}
+			a = true;
 			i += 1;
 		}
-		a = true;
+		if (compt2 < compt1){
+			compt2 = 0;
+		} else {
+			compt1 = 0;
+		}
+	
 	}
 
 	if (compt1 > compt2){
@@ -74,11 +89,19 @@ string tri(string chaine){
 	return chaine;
 }
 
+void minuscule(string &chaine){
+    for (int i = 0 ; i<chaine.size() ; i++)
+    {
+        chaine[i] = tolower(chaine[i]);
+    }
+}
+
 int main(int argc, char const *argv[]){
 	string chaine;
 	int len,res;
 
 	cin >> chaine;
+	minuscule(chaine);
 	chaine = tri(chaine);
 	cout << nbreOcc(chaine) << endl;
 	return 0;
