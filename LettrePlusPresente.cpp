@@ -34,6 +34,7 @@ int nbreOcc(string chaine){
 				}
 				i += 1;
 			}
+			
 			a = false;
 			i += 1;
 		} else {
@@ -44,13 +45,17 @@ int nbreOcc(string chaine){
 				}
 				i += 1;
 			}
-			a = true;
+			
 			i += 1;
 		}
 		if (compt2 < compt1){
+			
 			compt2 = 0;
+			a = false;
 		} else {
+			
 			compt1 = 0;
+			a = true;
 		}
 	
 	}
