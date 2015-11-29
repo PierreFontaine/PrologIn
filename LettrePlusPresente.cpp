@@ -15,7 +15,32 @@ using namespace std;
 */
 int nbreOcc(string chaine){
 	int res;
+	int compt1,compt2;
+	int i;
+	bool a;
 
+	i = 1;
+	a = true;
+	compt1 = 1;
+	if (a){
+		while(chaine[i] == chaine[i-1]){
+			compt1 += 1;
+			i += 1;
+		}
+		a = false;
+	} else {
+		while(chaine[i] == chaine[i-1]){
+			compt2 += 1;
+			i += 1;
+		}
+		a = true;
+	}
+
+	if (compt1 > compt2){
+		res = compt1;
+	}else{
+		res = compt2;
+	}
 	return res;
 }
 
@@ -55,5 +80,6 @@ int main(int argc, char const *argv[]){
 
 	cin >> chaine;
 	chaine = tri(chaine);
+	cout << nbreOcc(chaine) << endl;
 	return 0;
 }	
