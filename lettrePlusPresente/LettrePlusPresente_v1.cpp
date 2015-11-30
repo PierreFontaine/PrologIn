@@ -112,8 +112,10 @@ int main(int argc, char const *argv[]){
 	string chaine;
 	int len,res;
 	cin >> len;
-	cin >> chaine;
-	minuscule(chaine);
-	chaine = tri(chaine);
-	cout << nbreOcc(chaine) << endl;
+	if ((len >= 1) && (len <= 100000)){
+		cin >> chaine;
+		minuscule(chaine);
+		chaine = tri(chaine);
+		cout << nbreOcc(chaine) << endl;
+	}	
 }	
